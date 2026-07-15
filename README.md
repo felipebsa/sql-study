@@ -22,11 +22,13 @@ expense  (expense_id, name, value, date, origin)
 - [02 - JOINs (INNER e LEFT)](./02-joins.sql)
 - [03 - GROUP BY e HAVING](./03-group-by-having.sql)
 - [04 - Subqueries](./04-subqueries.sql)
+- [05 - Exercícios mistos](./05-exercicios-mistos.sql)
 
 ## Conceitos cobertos
 
-- `SELECT` / `WHERE` (filtros com `AND`, `OR`)
+- `SELECT` / `WHERE` (filtros com `AND`, `OR`, `BETWEEN`)
 - `INNER JOIN` vs `LEFT JOIN`
-- `GROUP BY` com funções de agregação (`COUNT`, `SUM`, `AVG`)
+- `GROUP BY` com funções de agregação (`COUNT`, `SUM`, `AVG`, `MAX`)
 - `HAVING` (filtro pós-agregação)
-- Subqueries: escalar, com `IN`, e correlacionada (`EXISTS`)
+- `ORDER BY`
+- Subqueries: escalar, com `IN` / `NOT IN`, e correlacionada (`EXISTS` / `NOT EXISTS`)
