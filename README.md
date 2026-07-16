@@ -23,12 +23,20 @@ expense  (expense_id, name, value, date, origin)
 - [03 - GROUP BY e HAVING](./03-group-by-having.sql)
 - [04 - Subqueries](./04-subqueries.sql)
 - [05 - Exercícios mistos](./05-exercicios-mistos.sql)
+- [06 - Exercícios mistos 2](./06-exercicios-mistos-2.sql)
 
 ## Conceitos cobertos
 
-- `SELECT` / `WHERE` (filtros com `AND`, `OR`, `BETWEEN`)
-- `INNER JOIN` vs `LEFT JOIN`
-- `GROUP BY` com funções de agregação (`COUNT`, `SUM`, `AVG`, `MAX`)
+- `SELECT` / `WHERE` (filtros com `AND`, `OR`, `BETWEEN`, `LIKE`)
+- `INNER JOIN` vs `LEFT JOIN` (incluindo JOIN triplo)
+- `GROUP BY` com funções de agregação (`COUNT`, `SUM`, `AVG`, `MAX`, `MIN`)
 - `HAVING` (filtro pós-agregação)
-- `ORDER BY`
+- `ORDER BY` e `LIMIT`
+- `DATE_TRUNC` (agrupamento por período)
 - Subqueries: escalar, com `IN` / `NOT IN`, e correlacionada (`EXISTS` / `NOT EXISTS`)
+
+## Próximos passos
+
+- Subquery no `FROM` (tabela derivada) — necessária para casos como "média dos totais agrupados por cliente"
+- Window functions (`ROW_NUMBER`, `RANK`, `OVER PARTITION BY`)
+- CTEs (`WITH ... AS`)
