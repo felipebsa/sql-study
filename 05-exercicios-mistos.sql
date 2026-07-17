@@ -1,3 +1,65 @@
+-- SEÇÃO DE REVISÃO (exercícios 1-10, revisitando o básico)
+
+-- 1. Clientes que não estão expirados
+SELECT *
+FROM clients
+WHERE expired = False;
+ 
+-- 2. Veículos ativos junto com o nome do cliente dono (JOIN simples)
+SELECT name, vehicles.*
+FROM vehicles
+JOIN clients ON vehicles.client_id = clients.client_id
+WHERE active = True;
+ 
+-- 3. Quantidade de veículos por cliente
+SELECT name, clients.client_id, COUNT(vehicle_id)
+FROM clients
+JOIN vehicles ON clients.client_id = vehicles.client_id
+GROUP BY clients.client_id, name;
+ 
+-- 4. Serviços com valor acima de R$500, do mais caro pro mais barato
+SELECT *
+FROM services
+WHERE value > 500
+ORDER BY value DESC;
+ 
+-- 5. Total de despesas agrupado por origem
+SELECT origin, SUM(value)
+FROM expenses
+GROUP BY origin;
+ 
+-- 6. Clientes com mais de 2 veículos cadastrados (GROUP BY + HAVING)
+SELECT clients.*
+FROM clients
+JOIN vehicles ON clients.client_id = vehicles.client_id
+GROUP BY clients.client_id
+HAVING COUNT(vehicle_id) > 2;
+ 
+-- 7. Serviços que ainda não foram finalizados
+SELECT *
+FROM services
+WHERE finish = False;
+ 
+-- 8. Valor total já gasto em serviços, por veículo
+SELECT vehicles.vehicle_id, SUM(value)
+FROM vehicles
+JOIN services ON vehicles.vehicle_id = services.vehicle_id
+GROUP BY vehicles.vehicle_id;
+ 
+-- 9. Materiais com total_value acima da média de todos os materiais (subquery escalar)
+SELECT *
+FROM materials
+WHERE total_value > (SELECT AVG(total_value) FROM materials);
+ 
+-- 10. Clientes que fizeram algum serviço no último mês
+SELECT clients.*
+FROM clients
+JOIN services ON clients.client_id = services.client_id
+WHERE date_release BETWEEN '2026-06-17' AND '2026-07-17';
+
+
+-- A 1. leva de 10 questões
+
 -- 1. Serviços com valor entre R$200 e R$800 (WHERE + BETWEEN)
 SELECT title, value
 FROM service
